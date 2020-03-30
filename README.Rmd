@@ -1,0 +1,60 @@
+---
+title: "README"
+output: 
+  github_document:
+    toc: false
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = ">")
+```
+
+##  READ ME
+
+This **README** file gives a detailed description fo the contents of this folder/repo, and things to do to enable a smooth workflow. Endeavour to read this.
+
+```{r, echo=FALSE}
+
+readme <- data.frame(No = 1:9, 
+           Item = c("*Dates of the surveys*", "*Survey Title*", "*Associated files*", "*Summary*",
+                    "*Key words*", "*People involved*", "*Short description of survey design*", 
+                    "*Data format*", "*Associated projects*"), 
+           Description = c("17/03/2020, 25/03/2020", "Hoe ga je om met coronoa?", 
+                           " README.md, masterFile.Rmd, plots, RImages, RScripts", 
+                           "A survey on peoples perception about COVID19", 
+                           "COVID-19, contact",
+                           "**Neyens Thomas (NYT)**
+                           **<br> Olusoji Oluwafemi Daniel (DOO)** 
+                           **<br> Aerts Marc (MRA)**
+                           **<br> Others, I cannot name for now**", 
+                           "A sample of the Belgian population filled the survey via Facebook", 
+                           "**SPSS sav files in folders stored on google drive**"
+                           , "Other projects going on using the same data"
+                           )
+           )
+pander::pander(readme, keep.line.breaks = TRUE, style = 'grid', justify = 'left')
+```
+
+## Steps
+
+1. Clone this repo by running `git clone https://github.com/fomotisUhasselt/COVID19Survey.git` in git bash or simply click on the `clone` option in the `Repository` tab, if you use Git GUI.
+
+2. Create your own branch within the repo by running `git checkout -b your_branch_name_here` in git bash.
+
+3. After every analysis:
+
+  a. add changes made to your branch by running `git add .` 
+
+  b. commit changes to your branch by running `git commit -m "a short descritptive message of what you did here"`
+  
+  c. push changes made to your branch by running `git push origin your_branch_name_here`
+  
+  d. create a pull request for your changes to be added to the master file by clicking on the `pull requests`, and `new pull request tab` tab on Github.
+
+## Note
+
+It is safer for each of us to create branches and work with our individual branches. After finishing any analysis, you can create a pull request for it to be merged with the master. Doing this allows easy tracing of errors.
+
+
+
+
