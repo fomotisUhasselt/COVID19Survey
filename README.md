@@ -26,8 +26,8 @@ Endeavour to read this.
     simply click on the `clone` option in the `Repository` tab, if you
     use Git GUI.
 
-2.  Double click on COVID19Survey.Rproj. This should open up RStudio
-    with the COVID19Survey project.
+2.  Double click on COVID19Survey.Rproj in the repo. This should open up
+    RStudio with the COVID19Survey project.
 
 3.  Create your own branch within the repo by running `git checkout -b
     your_branch_name_here` in the RStudio Terminal (the tab for this is
