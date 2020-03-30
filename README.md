@@ -26,24 +26,34 @@ Endeavour to read this.
     simply click on the `clone` option in the `Repository` tab, if you
     use Git GUI.
 
-2.  Create your own branch within the repo by running `git checkout -b
-    your_branch_name_here` in git bash.
+2.  Double click on COVID19Survey.Rproj. This should open up RStudio
+    with the COVID19Survey project.
 
-3.  After every analysis:
+3.  Create your own branch within the repo by running `git checkout -b
+    your_branch_name_here` in the RStudio Terminal (the tab for this is
+    besides the Console tab).
 
-<!-- end list -->
+4.  Do your thing in the `masterFile.Rmd` file. Remember to create a
+    section for your analysis. Step 3 makes sure that you are not
+    editing the original file directly, rather you edit a copy in your
+    branch.
 
-1.  add changes made to your branch by running `git add .`
+5.  After every analysis or at the end of a day’s job:
+    
+    1.  add changes made to your branch by running `git add .`
+    
+    2.  commit changes to your branch by running `git commit -m "a short
+        descritptive message of what you did here"`
+    
+    3.  push changes made to your branch by running `git push origin
+        your_branch_name_here`
+    
+    4.  create a pull request for your changes to be added to the master
+        file by clicking on the `pull requests`, and `new pull request
+        tab` tab on Github.
 
-2.  commit changes to your branch by running `git commit -m "a short
-    descritptive message of what you did here"`
-
-3.  push changes made to your branch by running `git push origin
-    your_branch_name_here`
-
-4.  create a pull request for your changes to be added to the master
-    file by clicking on the `pull requests`, and `new pull request tab`
-    tab on Github.
+6.  Your pull request will be merged later and this updates the original
+    `masterFile.Rmd`.
 
 ## Note
 
