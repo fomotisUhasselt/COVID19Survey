@@ -4,6 +4,11 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+### please list package used here
+library(haven)
+library(tidyverse)
+library(cluster)
+library(GGally)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -11,7 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
-
+first_survey <- read_sav("Data/firstSurvey/2020_UA_Corona_study_wave 17-03-2020_first clean.sav")
+second_survey <- read_sav("Data/secondSurvey/2020_UA_Corona_golf2_data_no clean.sav")
 ```
 
 ## Analysis one
