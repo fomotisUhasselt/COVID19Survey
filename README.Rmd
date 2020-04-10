@@ -11,7 +11,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 
 ##  READ ME
 
-This **README** file gives a detailed description fo the contents of this folder/repo, and things to do to enable a smooth workflow. Endeavour to read this.
+This **README** file gives a detailed description for the contents of this folder/repo, and things to do to enable a smooth workflow. Endeavour to read this.
 
 ```{r, echo=FALSE}
 

@@ -1,0 +1,283 @@
+"Question" "Survey_Questions"
+"UNID3" "Unique ID Wave 3"
+"StartDate" "Start Date"
+"EndDate" "End Date"
+"Status" "Response Type"
+"IPAddress" "IP Address"
+"Progress" "Progress"
+"Duration__in_seconds_" "Duration (in seconds)"
+"Finished" "Finished"
+"RecordedDate" "Recorded Date"
+"ResponseId" "Response ID"
+"RecipientLastName" "Recipient Last Name"
+"RecipientFirstName" "Recipient First Name"
+"RecipientEmail" "Recipient Email"
+"ExternalReference" "External Data Reference"
+"LocationLatitude" "Location Latitude"
+"LocationLongitude" "Location Longitude"
+"DistributionChannel" "Distribution Channel"
+"UserLanguage" "User Language"
+"Q2_1" "Heb je één van onze vorige ‘grote Corona-studies’ ingevuld (meerdere antwoorden mogelijk)? Ja, de eerste op dinsdag 17 maart"
+"Q2_2" "Heb je één van onze vorige ‘grote Corona-studies’ ingevuld (meerdere antwoorden mogelijk)? Ja, de tweede op dinsdag 24 maart"
+"Q2_3" "Heb je één van onze vorige ‘grote Corona-studies’ ingevuld (meerdere antwoorden mogelijk)? Neen"
+"Q3" "Wat is je leeftijd (in jaren)"
+"Q4" "Met welk geslacht identificeer je je?"
+"Q5" "Waar woon je in België (postcode)?"
+"Q68" "Verblijf je momenteel in België?"
+"Q6" "Wat is de hoogste opleidingsgraad die je hebt behaald? (ben je nog een student, geef dan het diploma aan waarvoor je studeert)"
+"Q7" "Woon je alleen of heb je huisgenoten?"
+"Q64" "Hoeveel huisgenoten ouder dan 70 jaar heb je?"
+"Q65" "Hoeveel huisgenoten tussen 18 en 70 jaar heb je?"
+"Q66" "Hoeveel huisgenoten tussen 12 en jonger dan 18 jaar heb je?"
+"Q67" "Hoeveel huisgenoten jonger dan 12 jaar heb je?"
+"Q9" "Hoeveel mensen met uitzondering van je huisgenoten heb je gisteren gesproken
+in het echt (dus niet via telefoon, facetime, whatsapp, skype, ...)?"
+"Q10" "Wanneer heb je na 24 maart het laatste een hand of zoen gegeven aan iemand anders dan een huisgenoot?"
+"Q62" "Hoeveel mensen heb je gisteren gesproken
+in het echt (dus niet via telefoon, facetime, whatsapp, skype enzo):"
+"Q63" "Wanneer heb je na 24 maart het laatste een hand of zoen gegeven aan iemand?"
+"Q11" "Wat was je arbeidssituatie voor de COVID-19 crisis (13 maart 2020)?"
+"Q69" "Is je arbeidssituatie momenteel (dus na 13 maart) gewijzigd?"
+"Q15_1" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice student leerplichtonderwijs (KO/LO/SO) of hoger onderwijs"
+"Q15_2" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice arbeider"
+"Q15_3" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice bediende"
+"Q15_4" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice leerkracht leerplichtonderwijs (KO/LO/SO)"
+"Q15_5" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice lesgever/onderzoeker hoger onderwijs"
+"Q15_6" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice gezondheidswerker (arts, verpleegkundige, zorgverlener,...)"
+"Q15_7" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice ordediensten (politie/brandweer/...)"
+"Q15_8" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice ambtenaar"
+"Q15_9" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice leidinggevende in loondienst (manager, afdelingshoofd etc)"
+"Q15_10" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice zelfstandige/vrij beroep"
+"Q15_11" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice zaakvoerder vennootschap"
+"Q15_12" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice werkzoekende"
+"Q15_13" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice thuiswerkend (huisman/-vrouw)"
+"Q15_14" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice op ziekenkas/invaliditeit"
+"Q15_15" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice in loopbaanonderbreking/verlof zonder wedde"
+"Q15_16" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice op (brug)pensioen"
+"Q15_17" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - Selected Choice andere"
+"Q15_17_TEXT" "Welke omschrijving(en) sluit(en) het beste aan bij het soort werk of activiteit dat je doet? (meerdere antwoorden zijn mogelijk) - andere - Tekst"
+"Q16" "Welk van de volgende omschrijvingen beschouw je als je hoofdactiviteit?"
+"Q12" "Werkte je voor de COVID-19 crisis (13 maart) gewoonlijk van thuis uit?"
+"Q13" "Hoe vaak werkte je voor de COVID-19 crisis meestal thuis per week?"
+"Q14" "Indien je voor het uitbreken van de COVID-19 crisis nooit thuis werkte, wat was de reden? - Selected Choice"
+"Q14_8_TEXT" "Indien je voor het uitbreken van de COVID-19 crisis nooit thuis werkte, wat was de reden? - Andere - Tekst"
+"Q17" "Tot welke sector behoort het bedrijf of organisatie waarin je werkt? - Selected Choice"
+"Q17_20_TEXT" "Tot welke sector behoort het bedrijf of organisatie waarin je werkt? - Andere, namelijk:  - Tekst"
+"Q18" "Waar voerde je voor de COVID-19 crisis het grootste deel van deze activiteit uit (postcode)?"
+"Q19_1" "Hieronder vind je een tabel met de voorbije 7 dagen. Kan je aanduiden of je al dan niet gewerkt hebt op die dagen? - woensdag 25 maart 2020"
+"Q19_2" "Hieronder vind je een tabel met de voorbije 7 dagen. Kan je aanduiden of je al dan niet gewerkt hebt op die dagen? - donderdag 26 maart 2020"
+"Q19_3" "Hieronder vind je een tabel met de voorbije 7 dagen. Kan je aanduiden of je al dan niet gewerkt hebt op die dagen? - vrijdag 27 maart 2020"
+"Q19_4" "Hieronder vind je een tabel met de voorbije 7 dagen. Kan je aanduiden of je al dan niet gewerkt hebt op die dagen? - zaterdag 28 maart 2020"
+"Q19_5" "Hieronder vind je een tabel met de voorbije 7 dagen. Kan je aanduiden of je al dan niet gewerkt hebt op die dagen? - zondag 29 maart 2020"
+"Q19_6" "Hieronder vind je een tabel met de voorbije 7 dagen. Kan je aanduiden of je al dan niet gewerkt hebt op die dagen? - maandag 30 maart 2020"
+"Q19_7" "Hieronder vind je een tabel met de voorbije 7 dagen. Kan je aanduiden of je al dan niet gewerkt hebt op die dagen? - dinsdag 31 maart 2020"
+"Q20_1" "Waar heb je deze dagen gewerkt? - woensdag 25 maart 2020"
+"Q20_2" "Waar heb je deze dagen gewerkt? - donderdag 26 maart 2020"
+"Q20_3" "Waar heb je deze dagen gewerkt? - vrijdag 27 maart 2020"
+"Q20_4" "Waar heb je deze dagen gewerkt? - zaterdag 28 maart 2020"
+"Q20_5" "Waar heb je deze dagen gewerkt? - zondag 29 maart 2020"
+"Q20_6" "Waar heb je deze dagen gewerkt? - maandag 30 maart 2020"
+"Q20_7" "Waar heb je deze dagen gewerkt? - dinsdag 31 maart 2020"
+"Q21" "Waarom werk je vandaag, 31 maart 2020, niet thuis? - Selected Choice"
+"Q21_4_TEXT" "Waarom werk je vandaag, 31 maart 2020, niet thuis? - Andere - Tekst"
+"Q22" "Waarom heb je het vandaag niet gedaan?"
+"Q23" "Waarom ben je thuis en werk je niet?"
+"Q24" "Hoe heb je de opvang van je kinderen vandaag geregeld? - Selected Choice"
+"Q24_10_TEXT" "Hoe heb je de opvang van je kinderen vandaag geregeld? - Andere - Tekst"
+"Q25" "Je kinderen zijn vandaag gewoon thuis met de huisgenoten. Is dit doorgaans zo? - Selected Choice"
+"Q25_3_TEXT" "Je kinderen zijn vandaag gewoon thuis met de huisgenoten. Is dit doorgaans zo? - Andere - Tekst"
+"Q26" "Je kinderen zijn vandaag gewoon thuis, samen met kinderen van een ander gezin. Is dit doorgaans zo? - Selected Choice"
+"Q26_4_TEXT" "Je kinderen zijn vandaag gewoon thuis, samen met kinderen van een ander gezin. Is dit doorgaans zo? - Andere - Tekst"
+"Q27" "Je kinderen zijn vandaag bij kennissen/vrienden. Is dit altijd zo? - Selected Choice"
+"Q27_5_TEXT" "Je kinderen zijn vandaag bij kennissen/vrienden. Is dit altijd zo? - Andere - Tekst"
+"Q28" "Tot welke leeftijdscategorie hoort de oudste van de grootouders waar uw kind werd opgevangen?"
+"Q71" "Heb je de opvang van je kinderen voor de Paasvakantie geregeld?"
+"Q73" "Hoe heb je de opvang van je kinderen voor de Paasvakantie geregeld? - Selected Choice"
+"Q73_10_TEXT" "Hoe heb je de opvang van je kinderen voor de Paasvakantie geregeld? - Andere - Tekst"
+"Q29_1" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Snel opkomende koorts"
+"Q29_2" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Hoge koorts (meer dan 38°)"
+"Q29_3" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Keelpijn"
+"Q29_4" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Kortademigheid"
+"Q29_5" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Droge hoest vanuit de keel"
+"Q29_6" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Rochelende hoest vanuit de borst"
+"Q29_7" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Pijn op de borst"
+"Q29_8" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Snotneus"
+"Q29_9" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Spierpijn"
+"Q29_10" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Vermoeid en uitgeput"
+"Q29_11" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Rillerig"
+"Q29_12" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Misselijk, overgeven"
+"Q29_13" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Pijnlijke ogen"
+"Q29_14" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Andere"
+"Q29_15" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Selected Choice Geen van deze symptomen"
+"Q29_14_TEXT" "Welke symptomen van luchtweginfecties heb je de laatste 10 dagen ervaren? - Andere - Tekst"
+"Q30" "Wanneer zijn deze symptomen bij jou begonnen? Ter herinnering: vanaf vrijdag 13 maart om middernacht zijn de grote maatregelen ingegaan (sluiting cafés en scholen)."
+"Q31" "Heb je nog steeds minstens 1 van de symptomen die je aanduidde?"
+"Q32" "Wanneer zijn de symptomen die je aanduidde bij jou beëindigd?"
+"Q33" "Heb je voor jouw symptomen een gezondheidswerker gecontacteerd?"
+"Q34" "Op welke wijze heb je een gezondheidswerker gecontacteerd?"
+"Q35" "Indien je alleen via de telefoon of internet contact met een gezondheidswerker had, welke informatie heb je gekregen?"
+"Q36" "Indien je na het telefoongesprek onderzocht bent, welke informatie heb je gekregen?"
+"Q40_1" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Hartziekte"
+"Q40_2" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Longaandoening"
+"Q40_3" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Nieraandoening"
+"Q40_4" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Suikerziekte"
+"Q40_5" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Hoge bloeddruk"
+"Q40_6" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Onderdrukking van afweer"
+"Q40_7" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Recente kankerdiagnose"
+"Q40_8" "Heb je een of meerdere van de volgende onderliggende aandoeningen die een risicofactor vormen voor het nieuwe coronavirus? Geen van deze aandoeningen"
+"Q75_1" "Heeft een huisgenoot (ouder dan 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Kortademigheid"
+"Q75_2" "Heeft een huisgenoot (ouder dan 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Hoest"
+"Q75_3" "Heeft een huisgenoot (ouder dan 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Koorts"
+"Q75_4" "Heeft een huisgenoot (ouder dan 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Keelpijn"
+"Q75_5" "Heeft een huisgenoot (ouder dan 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Geen van deze"
+"Q76" "Wanneer zijn de symptomen begonnen bij de huisgenoot ouder dan 70 jaar?"
+"Q80" "Wanneer zijn de symptomen die je aanduidde bij de huisgenoot ouder dan 70 jaar beëindigd?"
+"Q79_1" "Heeft een huisgenoot (tussen 18 en 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Kortademigheid"
+"Q79_2" "Heeft een huisgenoot (tussen 18 en 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Hoest"
+"Q79_3" "Heeft een huisgenoot (tussen 18 en 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Koorts"
+"Q79_4" "Heeft een huisgenoot (tussen 18 en 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Keelpijn"
+"Q79_5" "Heeft een huisgenoot (tussen 18 en 70 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Geen van deze"
+"Q81" "Wanneer zijn de symptomen begonnen bij de huisgenoot tussen 18 en 70 jaar?"
+"Q78" "Wanneer zijn de symptomen die je aanduidde bij de huisgenoot tussen 18 en 70 jaar beëindigd?"
+"Q82_1" "Heeft een huisgenoot (kind tussen 12 en jonger dan 18 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Kortademigheid"
+"Q82_2" "Heeft een huisgenoot (kind tussen 12 en jonger dan 18 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Hoest"
+"Q82_3" "Heeft een huisgenoot (kind tussen 12 en jonger dan 18 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Koorts"
+"Q82_4" "Heeft een huisgenoot (kind tussen 12 en jonger dan 18 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Keelpijn"
+"Q82_5" "Heeft een huisgenoot (kind tussen 12 en jonger dan 18 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Geen van deze"
+"Q83" "Wanneer zijn de symptomen begonnen bij de huisgenoot van 12 en jonger dan 18 jaar?"
+"Q84" "Wanneer zijn de symptomen die je aanduidde voor de huisgenoot van 12 en jonger dan 18 jaar beëindigd?"
+"Q85_1" "Heeft een huisgenoot (kind jonger dan 12 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Kortademigheid"
+"Q85_2" "Heeft een huisgenoot (kind jonger dan 12 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Hoest"
+"Q85_3" "Heeft een huisgenoot (kind jonger dan 12 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Koorts"
+"Q85_4" "Heeft een huisgenoot (kind jonger dan 12 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Keelpijn"
+"Q85_5" "Heeft een huisgenoot (kind jonger dan 12 jaar) in de afgelopen twee weken 1 of meerdere van de volgende symptomen doorgemaakt? Geen van deze"
+"Q86" "Wanneer zijn de symptomen begonnen bij het kind jonger dan 12 jaar?"
+"Q87" "Wanneer zijn de symptomen die je aanduidde bij het kind jonger dan 12 jaar beëindigd?"
+"Q38_1" "Op een schaal van 0 tot 10, kan je aangeven in welke mate jijzelf jouw gedrag hebt aangepast aan de aanbevelingen. - Tegenover huisgenoten"
+"Q38_2" "Op een schaal van 0 tot 10, kan je aangeven in welke mate jijzelf jouw gedrag hebt aangepast aan de aanbevelingen. - Tegenover werk"
+"Q38_3" "Op een schaal van 0 tot 10, kan je aangeven in welke mate jijzelf jouw gedrag hebt aangepast aan de aanbevelingen. - Op openbare plaatsen/in winkels"
+"Q39_1" "Op een schaal van 0 tot 10, kan je aangeven in welke mate dat mensen in je omgeving (dus niet via de media) hun gedrag hebben aangepast aan de aanbevelingen. - Tegenover huisgenoten"
+"Q39_2" "Op een schaal van 0 tot 10, kan je aangeven in welke mate dat mensen in je omgeving (dus niet via de media) hun gedrag hebben aangepast aan de aanbevelingen. - Tegenover werk"
+"Q39_3" "Op een schaal van 0 tot 10, kan je aangeven in welke mate dat mensen in je omgeving (dus niet via de media) hun gedrag hebben aangepast aan de aanbevelingen. - Op openbare plaatsen/in winkels"
+"Q42" "Heb je je de afgelopen week kunnen concentreren op je bezigheden?"
+"Q43" "Ben je de afgelopen week door zorgen veel slaap tekort gekomen?"
+"Q44" "Heb je de afgelopen week het gevoel gehad zinvol bezig te zijn?"
+"Q45" "Voelde je je de afgelopen week in staat om beslissingen (over dingen) te nemen?"
+"Q46" "Heb je de afgelopen week het gevoel gehad dat je voortdurend onder druk stond?"
+"Q47" "Heb je de afgelopen week het gevoel gehad dat je je moeilijkheden niet de baas kon?"
+"Q48" "Heb je de afgelopen week  plezier kunnen beleven aan je gewone, dagelijkse bezigheden?"
+"Q49" "Ben je de afgelopen week in staat geweest je problemen onder ogen te zien?"
+"Q50" "Heb je je de afgelopen week ongelukkig of neerslachtig gevoeld?"
+"Q51" "Ben je de afgelopen week het vertrouwen in jezelf kwijtgeraakt?"
+"Q52" "Heb je je de afgelopen week als een waardeloos iemand beschouwd?"
+"Q53" "Heb je je  de afgelopen week alles bij elkaar redelijk gelukkig gevoeld?"
+"Q54" "Voelde je je de afgelopen week optimistisch over je toekomst?"
+"Q55" "Hoe vaak heb je de afgelopen twee weken last gehad van nerveus, angstig of gespannen zijn?"
+"Q57_1" "Ervaar je relationele spanningen sinds de quarantaine maatregelen? - Met huisgenoten ouder dan 70 jaar"
+"Q57_2" "Ervaar je relationele spanningen sinds de quarantaine maatregelen? - Met huisgenoten tussen 18 en 70 jaar"
+"Q57_3" "Ervaar je relationele spanningen sinds de quarantaine maatregelen? - Met huisgenoten tussen 12 en jonger dan 18 jaar"
+"Q57_4" "Ervaar je relationele spanningen sinds de quarantaine maatregelen? - Met huisgenoten jonger dan 12 jaar"
+"Q57_5" "Ervaar je relationele spanningen sinds de quarantaine maatregelen? - Met partner of familie buitenshuis"
+"Q58_1" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Buiten gaan wandelen (los van naar de winkel gaan)"
+"Q58_2" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Buiten gaan fietsen (los van naar de winkel gaan)"
+"Q58_3" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Binnen lichaamsoefeningen (yoga, stretchen, hometrainer)"
+"Q58_4" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Gezelschapsspelletjes (al dan niet online) met andere mensen"
+"Q58_5" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Babbelen met andere mensen in open lucht op meer dan 1,5m van elkaar"
+"Q58_6" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Babbelen met andere mensen terwijl je hen ziet op een scherm"
+"Q58_7" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Babbelen met andere mensen terwijl je hen niet kan zien (bvb via telefoon)"
+"Q58_8" "Heb je de afgelopen week 1 of meerdere van deze activiteiten kunnen doen? Geen van bovenstaande"
+"Q91" "Een dergelijke app veronderstelt dat mensen bereid zijn om gegevens te delen waar ze overal naartoe gaan en welke gezondheidsproblemen ze hebben met betrekking tot COVID-19. Ben je bereid om zo'n app te gebruiken indien dit gratis is en de ANONIMITEIT wordt gewaarborgd?"
+"Q92_4" "Waarom zou je zo'n app niet gebruiken? (Meerdere antwoorden zijn mogelijk) - Selected Choice Ik heb geen smartphone"
+"Q92_5" "Waarom zou je zo'n app niet gebruiken? (Meerdere antwoorden zijn mogelijk) - Selected Choice Ik vertrouw het niet genoeg naar anonimiteit en privacy"
+"Q92_7" "Waarom zou je zo'n app niet gebruiken? (Meerdere antwoorden zijn mogelijk) - Selected Choice Ik vertrouw het niet genoeg om andere redenen dan anonimiteit en privacy"
+"Q92_8" "Waarom zou je zo'n app niet gebruiken? (Meerdere antwoorden zijn mogelijk) - Selected Choice Ik zie het nut hiervan niet in"
+"Q92_10" "Waarom zou je zo'n app niet gebruiken? (Meerdere antwoorden zijn mogelijk) - Selected Choice Ik weet niet wat een app en/of smartphone is"
+"Q92_9" "Waarom zou je zo'n app niet gebruiken? (Meerdere antwoorden zijn mogelijk) - Selected Choice Andere"
+"Q92_9_TEXT" "Waarom zou je zo'n app niet gebruiken? (Meerdere antwoorden zijn mogelijk) - Andere - Tekst"
+"Q59" "Tot slot heb je hieronder nog de kans om opmerkingen te delen."
+"Q74" "Heb je nog suggesties, opmerkingen of vragen over de grote Corona-studie? Deel ze hier."
+"niscode" "NISCODE"
+"community" "Community"
+"province" "Province"
+"gewest" "Gewest"
+"Q64_group" "Volwassenen ouder dan 70 jaar (gegroepeerd)"
+"Q65_group" "Volwassenen tussen 18 en 70 jaar (gegroepeerd)"
+"Q66_group" "Kinderen tussen 12 en jonger dan 18 jaar (gegroepeerd)"
+"Q67_group" "Kinderen jonger dan 12 jaar (gegroepeerd)"
+"Q8_child" "Kinderen jonger dan 18 jaar"
+"Q8_child_group" "Kinderen jonger dan 18 jaar (gegroepeerd)"
+"Q9_group" "Hoeveel mensen afgezien van uw huisgenoten hebt u gisteren gesproken in het echt (gegroepeerd)"
+"Q8_sum" "Hoeveel huisgenoten som"
+"Q8_sum_group" "Hoeveel huisgenoten som (gegroepeerd)"
+"age_range" "Age range"
+"WB_1" "Score GHQ-12"
+"Q30_date" "Wanneer zijn deze symptomen bij jou begonnen? Ter herinnering: vanaf vrijdag 13 maart om middernacht zijn de grote maatregelen ingegaan (sluiting cafés en scholen).
+
+
+
+ 
+ 
+
+
+
+Qualtrics.SurveyEngine.addOnload(function ()
+{
+  var qid = this.questionId;
+  var calid = qid + '_cal';
+  var y = QBuilder('div');
+  $(y).setStyle({clear:'both'});
+  var d = QBuilder('div',{className:'yui-skin-sam'},[
+    QBuilder('div', {id:calid}),
+    y
+  ]);
+  
+  var c = this.questionContainer;
+  c = $(c).down('.QuestionText');
+  c.appendChild(d);
+  var today = new Date();
+  var cal1 = new YAHOO.widget.Calendar(calid,{ pagedate: \"3/2020\",mindate: \"2/1/2020\",maxdate: today } ); 
+  cal1.render(); 
+  var input = $('QR~' + qid);
+  $(input).setStyle({marginTop: '20px',width: '150px'});
+  var p =$(input).up();
+  var x = QBuilder('div');
+  $(x).setStyle({clear:'both'});
+  p.insert(x,{position:'before'});
+    cal1.selectEvent.subscribe(function(e,dates){
+    var date = dates[0][0];
+    if (date[1]"
+"Q32_date" "Wanneer zijn de symptomen die je aanduidde bij jou beëindigd?
+ 
+ 
+ 
+
+
+
+Qualtrics.SurveyEngine.addOnload(function ()
+{
+  var qid = this.questionId;
+  var calid = qid + '_cal';
+  var y = QBuilder('div');
+  $(y).setStyle({clear:'both'});
+  var d = QBuilder('div',{className:'yui-skin-sam'},[
+    QBuilder('div', {id:calid}),
+    y
+  ]);
+  
+  var c = this.questionContainer;
+  c = $(c).down('.QuestionText');
+  c.appendChild(d);
+  var today = new Date();
+  var cal1 = new YAHOO.widget.Calendar(calid,{ pagedate: \"3/2020\",mindate: \"2/1/2020\",maxdate: today } ); 
+  cal1.render(); 
+  var input = $('QR~' + qid);
+  $(input).setStyle({marginTop: '20px',width: '150px'});
+  var p =$(input).up();
+  var x = QBuilder('div');
+  $(x).setStyle({clear:'both'});
+  p.insert(x,{position:'before'});
+    cal1.selectEvent.subscribe(function(e,dates){
+    var date = dates[0][0];
+    if (date[1]"
+"Single_HH" "Single household"
+"COVID_symptoms" "Aantal Covid-symptomen vermeld"

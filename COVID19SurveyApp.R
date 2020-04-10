@@ -1,304 +1,9 @@
 ### load libraries here
-library(shiny)
-library(shinydashboard)
-library(shinythemes)
-library(shinyWidgets)
-library(rvest)
-library(tidyverse)
-library(haven)
-library(leaflet)
-library(ggiraph)
-library(maps)
-library(sf)
-library(RColorBrewer)
-library(plotly)
-
-#function to extract the questions from the survey
-survey_questions <- function(data) {
-  
-  qsts <- lapply(data, function (x) attr(x,"label")) %>%
-    do.call(rbind.data.frame, .) %>% 
-    mutate(Question = names(data))
-  names(qsts)[1] <- "Survey_Questions"
-  
-  return(qsts %>% select(Question, Survey_Questions))
-}
-
-#function to extract the attributes of non-numeric variables
-survey_factors <- function(data) {
-  
-  lapply(data, function (x) attr(x,"labels"))
-}
-
-#function to convert the haven_labelled variables to factors
-convert_label <- function(data) {
-  
-  dd_list <- lapply(data, function(x) {
-    
-    if(class(x)[1] == "haven_labelled") {
-      
-      #extract the levels and attributes from the variable
-      levelss <- attr(x, "labels")
-      labelss <- sort(names(attr(x, "labels")))
-      
-      #form the factor
-      y <- factor(x, levels = levelss, 
-                  labels =  labelss)
-      
-    } else {
-      
-      y <- x
-      
-    }
-    
-    return(y)
-    
-  })
-  
-  #convert the resulting list to a dataframe
-  data.frame(dd_list)
-  
-}
-
-#function to convert Vlaams Brabant to Vlaams-Brabant
-vbrant <- function(x) {
-  
-  lx <- levels(x)
-  lx[lx == "Vlaams Brabant"] <- "Vlaams-Brabant"
-  return(lx)
-  
-}
-
-### function to return a merged dataset of respondents and Belgium map
-respondents_group <- function(belgium_mag_group, survey_data, 
-                              by.x = "Prov_nl", by.y = "Province") {
-  
-  merged_data <- merge(belgium_mag_group, survey_data, 
-                       by.x = by.x, by.y = by.y) #%>%
-  #mutate(Long = c(4.40346, 3.95229, 5.33781, 5.56749, 5.81667, 4.86746, 
-  #                3.71667, 4.70093, 4.60138, 3.22424, NA),
-  #       Lat = c(	51.21989, 50.45413, 50.93106, 50.63373, 49.68333, 50.4669, 
-  #                51.05, 50.87959, 50.71717, 51.20892, NA))
-  return(merged_data)
-  
-}
-
-##### reading in the data
-#first_survey <- read_sav("Data/firstSurvey/2020_UA_Corona_study_wave 17-03-2020_first clean.sav")
-#second_survey <- read_sav("Data/secondSurvey/2020_UA_Corona_golf2_data_no clean.sav")
-
-### clean the factor columns
-#first_survey2 <- convert_label(first_survey)
-#second_survey2 <- convert_label(second_survey)
-
-#extract the survey questions
-
-# change Vlaams Brabant to Vlaams-Brabant
-levels(first_survey2$province) <- vbrant(first_survey2$province)
-levels(second_survey2$province) <- vbrant(second_survey2$province)
-
-#survey data list
-survey_list_orig <- list(first_survey, second_survey)
-survey_list <- list(first_survey2, second_survey2)
-
-
-#function to compute some summares
-survey_summaries <- function(data, province, gender) { 
-  
-  #number of respondents
-  N_respondents <- nrow(data)
-  
-  #number of respondents per province
-  pdata_province <- as.data.frame(table(data[, province], useNA = 'always'))
-  names(pdata_province) <- c("Province", "Number")
-    
-  #number of respondents per region
-    Region <- case_when(
-      
-      data[, province] %in% c("Antwerpen", "Oost-Vlaanderen", "Vlaams-Brabant",
-                              "Limburg", "West-Vlaanderen") ~ "Flanders",
-            data[, province] %in% c("Henegouwen", "Luik", "Luxemburg",
-                              "Namen", "Waals-Brabant") ~ "Wallonia",
-      data[, province] == "Arrondissemment Brussel" ~ "Brussel",
-      data[, province] == "<NA>" ~ "NA"
-      
-    )
-    
-  #number of respondents per region
-    pdata_region <- as.data.frame(table(Region, useNA = 'always'))
-    names(pdata_region) <- c("Region", "Number")
-    
-  #gender distribution
-  pdata_gender <- as.data.frame(table(data[,gender], useNA = 'always'))
-  names(pdata_gender) <- c("Gender", "Number")
-  
-  return(list(newdata = cbind(data, Region = Region), N_respondents = N_respondents, 
-              pdata_province = pdata_province,
-              pdata_region = pdata_region,
-              pdata_gender = pdata_gender)
-         )
-}
-
-#function for bar chart
-bar_chart <- function(data, x, y) {
-  
-  data %>% ggplot(aes_string(x = x, y = y)) + 
-    geom_bar(fill = "peru", position="stack", stat = "identity") + 
-    theme_minimal() +
-    scale_y_continuous(labels = function(val) {trans = val / 1000; paste0(trans, "K")}) + 
-    labs(y = "Number of Respondents") +
-    geom_text(aes_string(label = paste0(prettyNum(y, big.mark = ",") )), 
-              color = "black", vjust =- 0.3) + 
-    theme(legend.title = element_blank(), legend.position = "", plot.title = element_text(size=10), 
-          plot.margin = margin(5, 12, 5, 5))
-  
-}
-
-#obtain number of respondents in total, per region and per province
-N_respondents <- numeric(length = length(survey_list))
-region_plots <- surv_sums  <- vector("list", length = length(survey_list))
-
-for(i in 1:2) {
-  
-  if(i == 1) {
-    
-    surv_sums[[i]] <- survey_summaries(survey_list[[i]], "province", gender = "Q3")
-    #extract the number of respondents
-    N_respondents[i] <- surv_sums[[i]]$N_respondents
-    #make the barchart
-    region_plots[[i]] <- bar_chart(surv_sums[[i]]$pdata_region, x = "Region", y = "Number")
-    
-  } else {
-    
-    surv_sums[[i]] <- survey_summaries(survey_list[[i]], "province", gender = "Q4")
-    #extract the number of respondents
-    N_respondents[i] <- surv_sums[[i]]$N_respondents
-    #make the barchart
-    region_plots[[i]] <- bar_chart(surv_sums[[i]]$pdata_region, x = "Region", y = "Number")
-  }
-  
-}
-
-### Belgium map
-#belgium2 <- read_sf("shapeFiles/BE_SB_TF_PD_STATDIS_2014.shp", quiet = TRUE)
-
-#compute area per province
-#belgium_province  <- belgium2 %>% group_by(Prov_nl) %>% 
-#  summarise(Province_area = sum(Shape_Area))
-
-#convert it
-#belgium_province_conv <- st_transform(belgium_province, '+ellps=WGS84 +proj=longlat +datum=WGS84 +no_defs')
-
-#obtain respondents per province and mere with data
-province_data <- lapply(surv_sums, function(x) {
-  
-  
-  respondents_group(belgium_province_conv, 
-                    x$pdata_province, 
-                    by.x = "Prov_nl", by.y = "Province")
-  
-})  
-
-#make the leaflet plots
-
-maps_plot <- function(plotdata) {
-  
-  ss <- seq(0, 500, 50)
-  mm <- max(plotdata$Number)/1000
-  ss_mm <- ss[which(mm <= ss)[1]]
-  color_bins <- seq(0, ss_mm, by = 50)
-  color_pal <- colorBin("YlOrRd", domain = plotdata$Prov_nl, 
-                        bins = color_bins)
-  
-  leaflet(data = plotdata) %>% 
-    addLegend("bottomright", pal = color_pal, values = ~province_data$Number/1000,
-              title = "<small>Respondents per 1,000</small>")  %>% 
-    
-    addPolygons(
-      data = plotdata,
-      color = "#444444",
-      weight = 2,
-      #stroke = FALSE,
-      smoothFactor = 0.5, 
-      opacity = 1.0,
-      fillOpacity = 0.5,
-      fillColor = ~color_pal(plotdata$Number / 1000),
-      highlightOptions = highlightOptions(color = "white", weight = 5,
-                                          bringToFront = TRUE),
-      label = sprintf("<strong>%s (%g respondents)</strong>", 
-                      plotdata$Prov_nl, 
-                      plotdata$Number) %>% lapply(htmltools::HTML)
-    ) 
-  
-}
-
-#leaflet_plots <- lapply(province_data, maps_plot)
-
-#### Exploratory Analysis plots
-
-## cross-tab between two categorical variables
-crosstab_data <- function(data, x, y){
-  x = get(x, data)
-  y = get(y, data)
-  data2 = data.frame(x=x,y=y)
-  dat = data2 %>% group_by(x, y) %>% count() %>% as.data.frame()
-  return(dat)
-}
-
-#dat = crosstab_data(first_survey2, "Q17", "age_class")
-
-#side-by-side barcharts
-sidebar_chart <- function(data, x, y, fill, ylab = "ylab", legendt = "legendt", survey_question) {
-  data %>% ggplot(aes_string(x = x, y = y, fill = fill)) +
-    geom_bar(position="dodge", stat = "identity") +
-    theme_bw() +
-    scale_y_continuous(labels = function(val) {trans = val / 1000; paste0(trans, "K")}) +
-    labs(y = ylab, x = survey_question) +
-  theme(axis.title.x = element_text(face = 'bold')) + 
-    scale_fill_brewer(name = legendt, palette = "Set1")
-  
-}
-#sidebar_chart(data=dat, x = "x", y = "n", fill = "y" , ylab = "Number of Respondents", 
-#              legendt = "Age group", 
-#              survey_question = test_qsts$Survey_Questions[test_qsts$Question == "Q17"])
-
-
-bar_box <- function(data, x, y, ylab="ylab") {
-  
-  data %>% ggplot(aes_string(x = x, y = y)) +
-    geom_boxplot() +
-    theme_minimal() +
-    labs(y = ylab, x="")
-}
-#bar_box(data=firstsurvey, x = "Q17", y = "Q2", ylab = "Age")
-
-#province_data %>% ggplot() + 
-#  geom_sf(aes(fill = province_data$Number / 1000)) +
-#   scale_fill_gradientn(colours = brewer.pal(4, "YlOrRd")) + 
-#  geom_point(aes(x = Long, y = Lat, size = Number^(1/5)))
-
-################ cluster analysis
-
-data_cluster <- first_survey2 %>% 
-  filter(age_class == "13-17 jaar") %>% 
-  select(Q17, Q20, Q22_1, Q22_2, Q22_3) %>%
-  mutate(
-    Q17_num = case_when(
-      Q17 == "Do not know" ~ 0, 
-      Q17 == "No" ~ 1,
-      Q17 == "Yes" ~ 2
-      ), 
-    Q20_num = case_when(
-      Q20 == "Do not know" ~ 0, 
-      Q20 == "No" ~ 1,
-      Q20 == "Yes" ~ 2
-    )
-      
-  )
-  
-
-#gower.dist <- daisy(data_cluster[, 3:4], metric = 'gower')
-#c1 <- hclust(gower.dist, method = "complete")
+source("RScripts/DataProcessing.R")
+source("RScripts/mergeSurvey.R")
+source("RScripts/EDA.R")
+source("RScripts/spatial.R")
+source("RScripts/multivariate.R")
 
 
 
@@ -319,7 +24,8 @@ ui <- bootstrapPage(
                    ),
             leafletOutput("mymap", width = "100%", height = 800),
            
-            absolutePanel(id = "controls", class = "panel panel-default",
+            absolutePanel(
+              id = "controls", class = "panel panel-default",
                          top = 80, left = 40, width = 300, fixed=TRUE,
                          draggable = TRUE, height = "auto",
                          # Input Survey Round
@@ -327,7 +33,8 @@ ui <- bootstrapPage(
                                      label = "Survey Round", 
                                      choices = c("First" = 1, 
                                                  "Second" = 2, 
-                                                 "Third" = 3), 
+                                                 "Third" = 3,
+                                                 "Fourth" = 4), 
                                      selected = "First",
                                      multiple = FALSE),
                          h3(textOutput("total_reactive_respondents"), align = "right"),
@@ -342,6 +49,7 @@ ui <- bootstrapPage(
   
     #Second panel for exploratory data analysis
     tabPanel("Exploratory Data Analysis",
+             
              sidebarLayout(
                sidebarPanel(
                  
@@ -349,13 +57,21 @@ ui <- bootstrapPage(
                              label = "Survey Round", 
                              choices = c("First" = 1, 
                                          "Second" = 2, 
-                                         "Third" = 3), 
+                                         "Third" = 3, 
+                                         "Fourth" = 4), 
                              selected = "First",
                              multiple = FALSE),
                  
-                 pickerInput("question_select", "Survey Questions",   
+                 selectInput("question_select", 
+                             label = "Survey Questions: Variable One",   
                              choices = textOutput("questions"),
-                             multiple = TRUE),
+                             multiple = FALSE),
+                 
+                 selectInput("question_select", 
+                             label = "Survey Questions: Variable Two",   
+                             choices = textOutput("questions"),
+                             multiple = FALSE),
+                 
                  textInput("legendTitle", "Legend Title:")
                  ), 
                  
@@ -374,20 +90,76 @@ ui <- bootstrapPage(
           ),
   
     #Third panel to check for data merging
-    tabPanel("Merging Surveys"),
+    tabPanel("Merging Surveys",
+             
+             sidebarLayout(
+               sidebarPanel(
+                 
+                 pickerInput("survey_select", 
+                             label = "Select survey rounds to merge:", 
+                             choices = c("First" = 1, 
+                                         "Second" = 2, 
+                                         "Third" = 3, 
+                                         "Fourth" = 4), 
+                             selected = c("Second" = 2, "Third" = 3),
+                             multiple = TRUE)
+               ),
+               
+               mainPanel(
+                 
+                  DT::dataTableOutput("merged_survey"),
+                  downloadButton("downloadMergedSurvey", "Download as CSV")
+                 
+               )
+             )
+             
+             
+    ),
   
-    #Third panel for exploratory data analysis
+    #Third panel for pattern and clustering
     tabPanel("Patterns and Clusters"),
   
-    #fourth panel for exploratory data analysis
-    tabPanel("Spatial Analysis"),
+    #fourth panel for spatial data analysis
+    tabPanel(
+      "Spatial Analysis",
+      tags$head(
+        tags$style(HTML(".leaflet-container { background: #FFFFFF; }"))
+      ),
+      sidebarLayout(
+        sidebarPanel(
+          
+          selectInput("surveyID_spatial", 
+                      label = "Survey Round", 
+                      choices = c("First" = 1, 
+                                  "Second" = 2, 
+                                  "Third" = 3, 
+                                  "Fourth" = 4), 
+                      selected = "First",
+                      multiple = FALSE),
+          
+          selectInput("provinceID", 
+                      label = "Province", 
+                      choices = unique(belgium_gemeente$Prov_nl), 
+                      multiple = FALSE),
+          selectInput("regionID", 
+                      label = "Region", 
+                      choices = unique(belgium_gemeente$Reg_nl), 
+                      multiple = FALSE)
+          
+        ),
+        mainPanel(
+          
+          leafletOutput("spcarmap", width = "100%", height = 800)
+          
+        )
+      ),
+      
+    ),
   
-    tabPanel("Contact Analysis"),
+    tabPanel("Contact Data Analysis"),
   
     tabPanel("About the survey")
-  
 
-      
   )
 )
 
@@ -486,7 +258,8 @@ server <- function(input, output, session) {
     #qsts <- survey_questions(survey_choice)
     if(length(input$question_select) == 2) {
       
-      qsts_selected <- reactive_question()$Question[which(reactive_question()$Survey_Questions %in% input$question_select)]
+      qsts_selected <- reactive_question()$Question[which(reactive_question()$Survey_Questions %in% 
+                                                            input$question_select)]
       
     } else {
       
@@ -518,6 +291,62 @@ server <- function(input, output, session) {
       print(reactive_EDA_data())
     
     })
+  
+  ################## The Data merging tab
+  
+  reactive_survey_select <- reactive({
+    
+      poss <- as.numeric(unlist(input$survey_select))
+      
+      merge_surveys(survey_list_orig[poss])
+   })
+  
+  output$merged_survey <- DT::renderDataTable({
+    
+    DT::datatable(reactive_survey_select())
+    
+    }, extensions = "Buttons", options = list(dom = 'Bfrtip', ordering = FALSE, searching = TRUE, 
+                                              scrollY="300px",scrollCollapse = TRUE,
+                                              paging = FALSE, scrollX = TRUE,
+                                              buttons = list("csv","excel"))
+    )
+   
+  output$downloadMergedSurvey <- downloadHandler(
+    filename = function() {
+      paste("Merged", "Survey.csv", sep = "_")
+    },
+    content = function(file) {
+      write.csv(reactive_survey_select(), file)
+    }
+  )
+  
+  
+  ################## The spatial Analysis tab
+  
+  reactive_sppred <- reactive({
+    
+      if(as.numeric(input$surveyID_spatial) == 1) {
+      
+        gr <- 2
+      
+      } else {
+      
+        gr <- as.numeric(input$surveyID_spatial)
+      
+      }
+    
+      pred.symp[[gr]]
+    
+    
+    })
+  
+  output$spcarmap <- renderLeaflet({ 
+    
+    spatial_car_maps(pred = reactive_sppred(), nclr = 8, map.shp = map.shp)
+    
+  })
+  
+  
   
   
 }

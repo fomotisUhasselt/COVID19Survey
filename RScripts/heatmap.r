@@ -5,7 +5,7 @@ setwd("/Volumes/GoogleDrive/My Drive/MACMARC GD/CONSULTANCY/CORONA/2020_UA_Coron
 #cordat=as.data.frame(read.spss("2020_UA_Corona_golf2_data_no clean.sav"))
 library(haven)
 library(brglm2)
-cd=read_sav("2020_UA_Corona_golf2_data_no clean.sav") 
+cd=read_sav("Data/secondSurvey/2020_UA_Corona_golf2_data_no clean.sav") 
 colnames(cd)
 
 
@@ -50,6 +50,6 @@ round(mat,3)
 
 install.packages("RColorBrewer")
 library("RColorBrewer")
-heatmap(round(1-mat,3),scale="none",col = brewer.pal(11,"RdYlGn"),Colv=NA)
+heatmap(round(1-mat,3),scale="none",col = brewer.pal(11,"RdYlGn"), Colv=NA)
 
 
