@@ -19,3 +19,4 @@ shapeFiles/*.shp
 shapeFiles/*.xml
 shapeFiles/*.shx
 Data
+*.RData
