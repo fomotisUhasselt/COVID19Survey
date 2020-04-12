@@ -1,12 +1,17 @@
 require(shiny)
 require(shinydashboard)
 require(shinyWidgets)
+require(shinycssloaders)
+require(shinyBS)
 require(ggplot2)
 require(sf)
 require(tidyverse)
 require(leaflet)
 require(RColorBrewer)
 require(classInt)
+
+source('scripts/dictionary.R')
+set_language('en')
 
 ui_survey_response <- function() {
   fluidRow(
@@ -29,16 +34,93 @@ ui_psychology <- function() {
   )
 }
 
+ui_header_menu <- function() {
+  div(
+    style = "position: absolute; right: 1.7em; top: -0.9em; z-index:1050; display:inline-block;",
+    fluidRow(width = 160,
+            column(8, selectInput('language', '',
+                 c('Nederlands' = 'nl', 'English' = 'en'),
+                width = 150)),
+             column(2, 
+                    div(style = 'position:relative; top: 1.4em;',
+                        actionButton('about', '',
+                          icon = icon("question", class = "opt"))))
+    )
+    )
+}
+
+ui_button_bar <- function() {
+  fluidRow(
+    width = NULL,
+    column(
+      width = 12,
+        bsButton("patients", 
+                 label = "\u00A0Participants", 
+                 icon = icon("user"), 
+                 style = "maintab"),
+        bsButton("epidemiology", 
+                 label = "\u00A0Epidemiology", 
+                 icon = icon("viruses"), 
+                 style = "maintab"),
+        bsButton("mitigation", 
+                 label = "\u00A0Mitigation", 
+                 icon = icon("people-arrows"), 
+                 style = "maintab"),
+        bsButton("mental health", 
+                 label = "\u00A0Mental health", 
+                 icon = icon("brain"), 
+                 style = "maintab")
+    )
+  )
+}
+
 ui <- dashboardPage(dashboardHeader(title = "Corona Survey"),
                     dashboardSidebar(disable = TRUE),
                     dashboardBody(
+                      tags$head(
+                        tags$link(
+                          rel = "stylesheet", 
+                          type = "text/css", 
+                          href = "fontawesome/css/all.css"),
+                        tags$link(
+                          rel = "stylesheet", 
+                          type = "text/css", 
+                          href = "corona_survey_style.css")
+                      ),
+                      ui_header_menu(),
+                      ui_button_bar(),
                       ui_survey_response(),
                       ui_symptoms(),
                       ui_psychology()))
 
 
 
+
 server <- function(session, input, output) {
+  
+  about <- function() {
+    showModal(modalDialog(
+      easyClose = TRUE,
+      title = 'Corona Survey',
+      tabBox(
+        title = "",
+        width = NULL,
+        id = "info_corona_survey",
+        tabPanel("Nederlands", 
+                 includeHTML('information/info_nl.html')
+        ),
+        tabPanel("fran\u00E7ais", 
+                 includeHTML('information/info_en.html')
+        ),
+        tabPanel("English", 
+                 includeHTML('information/info_fr.html')
+        )
+      ),
+      footer = NULL
+    ))
+  }
+  
+  
   
   ggblue <- "#56B4E9";#gg_co
   ggorange <- gg_color_hue(2)[1];
@@ -53,38 +135,51 @@ server <- function(session, input, output) {
     summarise(province_area = sum(F_AREA))
   
   choose_province <- c('Belgium', map_province$prov_nl) 
+  names(choose_province) <- translate(c('Belgium', map_province$prov_nl))
   
   load('data/aggregated_data.RData')
   
-  output$survey_response_map_box <- renderUI({
-    div(style = 'position:relative;',
-        tags$head(
-          tags$style(HTML(".leaflet-container { background: #fff; }"))
-        ),
-    tabBox(
-      title = "",
-      height = 400,
-      width = NULL,
-      id = "map_survey_response",
-      tabPanel("April 7", 
-               div(style = 'font-size:24px; color:#F8766D;', 'Distribution participants by province'),
-               leafletOutput('survey_response_4', height='300'),
-               div(
-                 style = "position: absolute; left: 0.5em; bottom: 0.5em;",
-                 actionButton('question_map_responses', '',
-                              icon = icon("question", class = "opt")
-                 )
-               )),
-      tabPanel("March 31", 
-               div(style = 'font-size:24px; color:#F8766D;', 'Distribution participants by province'),
-               leafletOutput('survey_response_3', height='300')),
-      tabPanel("March 24", 
-               div(style = 'font-size:24px; color:#F8766D;', 'Distribution participants by province'),
-               leafletOutput('survey_response_2', height='300')),
-      tabPanel("Mach 17", 
-               div(style = 'font-size:24px; color:#F8766D;', 'Distribution participants by province'),
-               leafletOutput('survey_response_1', height='300'))
-    ))
+  render_everything <- function() {
+    output$survey_response_map_box <- renderUI({
+      div(style = 'position:relative;',
+          tags$head(
+            tags$style(HTML(".leaflet-container { background: #fff; }"))
+          ),
+          tabBox(
+            title = "",
+            height = 400,
+            width = NULL,
+            id = "map_survey_response",
+            tabPanel(translate("April 7"), 
+                     div(style = 'font-size:24px; color:#F8766D;', translate('Distribution participants by province')),
+                     withSpinner(leafletOutput('survey_response_4', height='300')),
+                     div(
+                       style = "position: absolute; left: 0.5em; bottom: 0.5em;",
+                       actionButton('question_map_responses', '',
+                                    icon = icon("question", class = "opt")
+                       )
+                     )),
+            tabPanel(translate("March 31"), 
+                     div(style = 'font-size:24px; color:#F8766D;', translate('Distribution participants by province')),
+                     withSpinner(leafletOutput('survey_response_3', height='300'))),
+            tabPanel(translate("March 24"), 
+                     div(style = 'font-size:24px; color:#F8766D;', translate('Distribution participants by province')),
+                     withSpinner(leafletOutput('survey_response_2', height='300'))),
+            tabPanel(translate("March 17"), 
+                     div(style = 'font-size:24px; color:#F8766D;', translate('Distribution participants by province')),
+                     withSpinner(leafletOutput('survey_response_1', height='300')))
+          ))
+    })
+  }
+  
+  render_everything();
+  
+  observeEvent(input$language, {
+    prev_language <- active_language
+    set_language(input$language)
+    if(prev_language != active_language) {
+      render_everything()
+    }
   })
   
   output$symptom_map_box <- renderUI({
@@ -99,7 +194,7 @@ server <- function(session, input, output) {
           id = "map_symptom",
           tabPanel("March 31", 
                    div(style = 'font-size:24px; color:#F8766D;', 'Probability of having symptoms'),
-                   leafletOutput('symptom_map_3', height='300'),
+                   withSpinner(leafletOutput('symptom_map_3', height='300')),
                    div(
                      style = "position: absolute; left: 0.5em; bottom: 0.5em;",
                      actionButton('question_map_responses', '',
@@ -114,7 +209,7 @@ server <- function(session, input, output) {
                    )),
           tabPanel("March 24", 
                    div(style = 'font-size:24px; color:#F8766D;', 'Probability of having symptoms'),
-                   leafletOutput('symptom_map_2', height='300'),
+                   withSpinner(leafletOutput('symptom_map_2', height='300')),
                    div(
                      style = "position: absolute; left: 0.5em; bottom: 0.5em;",
                      actionButton('question_map_responses', '',
@@ -134,40 +229,40 @@ server <- function(session, input, output) {
   
   output$survey_response_bar_box <- renderUI({
     div(style = 'position:relative;', 
-    tabBox(
-      title = "",
-      # The id lets us use input$tabset1 on the server to find the current tab
-      id = "tabset1", 
-      height = 400,
-      width = NULL,
-      tabPanel("response", 
-               icon = icon("chart-bar", class = "opt"),
-               div(
-                 style = "position: absolute; left: 0.5em; bottom: 0.5em;",
-                 actionButton('question_bar_responses', '',
-                   icon = icon("question", class = "opt")
-                 )
-               ),
-               plotOutput('survey_response_count', height = 300)),
-      tabPanel("gender", 
-               icon = icon("venus-mars", class = "opt"),
-               div(
-                 style = "position: absolute; left: 0.5em; bottom: 0.5em;",
-                 actionButton('question_bar_responses', '',
-                              icon = icon("question", class = "opt")
-                 )
-               ),
-               plotOutput('survey_response_gender', height = 300)),
-      tabPanel("age", 
-               icon = icon("birthday-cake", class = "opt"),
-               div(
-                 style = "position: absolute; left: 0.5em; bottom: 0.5em;",
-                 actionButton('question_bar_responses', '',
-                              icon = icon("question", class = "opt")
-                 )
-               ),
-               plotOutput('survey_response_age', height = 300))
-    ))
+        tabBox(
+          title = "",
+          # The id lets us use input$tabset1 on the server to find the current tab
+          id = "tabset1", 
+          height = 400,
+          width = NULL,
+          tabPanel("response", 
+                   icon = icon("chart-bar", class = "opt"),
+                   div(
+                     style = "position: absolute; left: 0.5em; bottom: 0.5em;",
+                     actionButton('question_bar_responses', '',
+                                  icon = icon("question", class = "opt")
+                     )
+                   ),
+                   plotOutput('survey_response_count', height = 300)),
+          tabPanel("gender", 
+                   icon = icon("venus-mars", class = "opt"),
+                   div(
+                     style = "position: absolute; left: 0.5em; bottom: 0.5em;",
+                     actionButton('question_bar_responses', '',
+                                  icon = icon("question", class = "opt")
+                     )
+                   ),
+                   plotOutput('survey_response_gender', height = 300)),
+          tabPanel("age", 
+                   icon = icon("birthday-cake", class = "opt"),
+                   div(
+                     style = "position: absolute; left: 0.5em; bottom: 0.5em;",
+                     actionButton('question_bar_responses', '',
+                                  icon = icon("question", class = "opt")
+                     )
+                   ),
+                   plotOutput('survey_response_age', height = 300))
+        ))
   })
   
   output$mitigation_bar_box <- renderUI({
@@ -234,7 +329,7 @@ server <- function(session, input, output) {
                    plotOutput('mitigation_fysical_contact', height = 300))
           
         ))
-    })
+  })
   
   output$psychology_bar_box <- renderUI({
     div(style = 'position:relative;', 
@@ -310,10 +405,18 @@ server <- function(session, input, output) {
         label = paste0(round(data$value*10000)/100, '%'))
   }
   
-  output$survey_response_1 <- renderLeaflet({ map_response_freq(1) })
-  output$survey_response_2 <- renderLeaflet({ map_response_freq(2) })
-  output$survey_response_3 <- renderLeaflet({ map_response_freq(3) })
-  output$survey_response_4 <- renderLeaflet({ map_response_freq(4) })
+  observeEvent(input$map_survey_response, {
+    if(input$map_survey_response == translate('April 7')) {
+      output$survey_response_4 <- renderLeaflet({ map_response_freq(4) })
+    } else if(input$map_survey_response == translate('March 31')) {
+      output$survey_response_3 <- renderLeaflet({ map_response_freq(3) })
+    } else if(input$map_survey_response == translate('March 24')) {
+      output$survey_response_2 <- renderLeaflet({ map_response_freq(2) })
+    } else if(input$map_survey_response == translate('March 17')) {
+      output$survey_response_1 <- renderLeaflet({ map_response_freq(1) })
+    }
+    
+  })
   
   output$survey_response_count <- renderPlot({
     
@@ -361,10 +464,14 @@ server <- function(session, input, output) {
   var <- c(map_predict$symptom2, map_predict$symptom3)
   
   breaks_map_symptom <- c(round(min(var),4)-0.0001,
-              round(as.numeric(quantile(var, probs = seq(0, 1, 0.25))),4)[2:4],
-              round(max(var),4)+0.0001)
+                          round(as.numeric(quantile(var, probs = seq(0, 1, 0.25))),4)[2:4],
+                          round(max(var),4)+0.0001)
+  
+  active_map_symptom <- rep('', 4)
   
   map_symptom <- function(survey_number, column_name, province = 'Belgium') {
+    
+    active_map_symptom[survey_number] <<- province;
     
     map <- map_predict
     
@@ -410,17 +517,33 @@ server <- function(session, input, output) {
   #output$symptom_map_3 <-renderLeaflet({ map_symptom(3, 'symptom3')})
   #output$symptom_map_2 <-renderLeaflet({ map_symptom(2, 'symptom2')})
   
+  observeEvent(input$map_symptom,{
+    
+    if(input$map_symptom == 'March 31') {
+      if(active_map_symptom[3] != input$select_province_3) {
+        output$symptom_map_3 <-renderLeaflet({ map_symptom(3, 'symptom3', input$select_province_3)})
+      }
+    } else if(input$map_symptom == 'March 24') {
+      if(active_map_symptom[2] != input$select_province_2) {
+        output$symptom_map_2 <-renderLeaflet({ map_symptom(2, 'symptom2', input$select_province_2)})
+      }
+    }
+  })
+  
   observeEvent(input$select_province_3, {
-    output$symptom_map_2 <-renderLeaflet({ map_symptom(2, 'symptom2', input$select_province_2)})
-    output$symptom_map_3 <-renderLeaflet({ map_symptom(3, 'symptom3', input$select_province_3)})
     updateSelectizeInput(session, "select_province_2", selected = input$select_province_3)
+    
+    if(active_map_symptom[3] != input$select_province_3) {
+      output$symptom_map_3 <-renderLeaflet({ map_symptom(3, 'symptom3', input$select_province_3)})
+    }
   }, ignoreInit = TRUE)
   
   observeEvent(input$select_province_2, {
-    
-    output$symptom_map_2 <-renderLeaflet({ map_symptom(2, 'symptom2', input$select_province_2)})
-    output$symptom_map_3 <-renderLeaflet({ map_symptom(3, 'symptom3', input$select_province_3)})
     updateSelectizeInput(session, "select_province_3", selected = input$select_province_2)
+    
+    if(active_map_symptom[2] != input$select_province_2) {
+      output$symptom_map_2 <-renderLeaflet({ map_symptom(2, 'symptom2', input$select_province_2)})
+    }
   }, ignoreInit = TRUE)
   
   
