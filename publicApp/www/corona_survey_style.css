@@ -1,39 +1,48 @@
  .btn-maintab {
-    font-size: 18px;
+    font-size: 16px;
     font-family: inherit;
     padding: 5px 12px;
     height: 55px;
-    min-width: 21.85%;
+    width: 20%;
     margin: 0px 10px 14px 20px;
     text-align: left;
-    color: white;
-    background: #727477;
+    color: white !important;
+    background: #999;
     text-indent: 4px;
     vertical-align: middle;
     border-radius: 0px;
     border-color: transparent;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.18), 0 1px 5px 0 rgba(0,0,0,0.15);
-    text-transform: uppercase;
-    -webkit-transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
-    transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+}
+ .btn-activetab {
+    font-size: 16px;
+    font-family: inherit;
+    padding: 5px 12px;
+    height: 55px;
+    width: 20%;
+    margin: 0px 10px 14px 20px;
+    text-align: left;
+    color: white !important;
+    background: #56B4E9;
+    text-indent: 4px;
+    vertical-align: middle;
+    border-radius: 0px;
+    border-color: transparent;
 }
 .btn-maintab:hover {
-    background-color:#d1351b;
-    font-size: 18px;
+    background-color:#56B4E9;
+    font-size: 16px;
     font-family: inherit;
     padding: 5px 12px;
     height: 55px;
-    min-width: 21.85%;
+    width: 20%;
     margin: 0px 10px 14px 20px;
     text-align: left;
-    color: white;
+    color: white !important;
     text-indent: 4px;
     vertical-align: middle;
     border-radius: 0px;
     border-color: transparent;
-    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
-    -webkit-transition: box-shadow 0.4s ease-out;
-    transition: box-shadow 0.4s ease-out;
+}
+.btn-maintab:focus{
+	color: white;
 }
