@@ -1,0 +1,10 @@
+name: corona-studie
+title: corona-studie
+username:
+account: corona-studie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2145472
+bundleId: 3051917
+url: https://corona-studie.shinyapps.io/corona-studie/
+when: 1587589628.35148

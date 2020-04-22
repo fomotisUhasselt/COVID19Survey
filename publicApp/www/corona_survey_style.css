@@ -3,7 +3,7 @@
     font-family: inherit;
     padding: 5px 12px;
     height: 55px;
-    width: 20%;
+    width: 15%;
     margin: 0px 10px 14px 20px;
     text-align: left;
     color: white !important;
@@ -18,7 +18,7 @@
     font-family: inherit;
     padding: 5px 12px;
     height: 55px;
-    width: 20%;
+    width: 15%;
     margin: 0px 10px 14px 20px;
     text-align: left;
     color: white !important;
@@ -34,7 +34,7 @@
     font-family: inherit;
     padding: 5px 12px;
     height: 55px;
-    width: 20%;
+    width: 15%;
     margin: 0px 10px 14px 20px;
     text-align: left;
     color: white !important;
@@ -45,4 +45,39 @@
 }
 .btn-maintab:focus{
 	color: white;
+}
+
+.navbar{
+	background-color: #56B4E9 !important;
+	margin-left:300px !important;
+}
+
+.main-header .logo{
+	background-color: #3c8dbc !important;
+	width:300px;
+	float:left;
+}
+
+.box.box-solid.box-warning>.box-header {
+	background-color: #A3D596 !important;
+}
+
+.box.box-solid.box-warning {
+	border-color: #A3D596 !important;
+}
+
+.nav-tabs {
+	overflow-y:hidden !important;
+	height:50px;
+}
+
+.mobile-header{
+	display:block; 
+	padding:15px;
+	width:100%; 
+	margin-bottom: 20px; 
+	background-color:#56B4E9;
+	font-size:18px; 
+	color:#fff;
+	border-radius: 4px;'
 }

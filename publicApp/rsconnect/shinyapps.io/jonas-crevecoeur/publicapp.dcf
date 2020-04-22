@@ -1,0 +1,10 @@
+name: publicapp
+title: publicapp
+username:
+account: jonas-crevecoeur
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2108106
+bundleId: 3051879
+url: https://jonas-crevecoeur.shinyapps.io/publicapp/
+when: 1587589139.69267

@@ -1,6 +1,6 @@
 dictionary <- merge(
-  read.csv('translations/translation_nl.csv'),
-  read.csv('translations/translation_en.csv'),
+  read.csv('translations/translation_nl.csv', fileEncoding = 'UTF-8'),
+  read.csv('translations/translation_en.csv', fileEncoding = 'UTF-8'),
   by = 'ex')
 
 translate <- function(code) {
@@ -11,3 +11,4 @@ translate <- function(code) {
 set_language <- function(language_code) {
   active_language <<- match(language_code, colnames(dictionary))
 }
+
